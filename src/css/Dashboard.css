@@ -1,0 +1,69 @@
+.dash_header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: green;
+  font-weight: bolder;
+  margin: 2px;
+}
+.main_info {
+  /* background-color:blueviolet; */
+  margin: 20px;
+}
+#heading_info {
+  color: black;
+  font-weight: bolder;
+}
+.info-dash {
+  background-color: rgb(11, 77, 94);
+  /* background: rgba(0, 212, 255, 0.5);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(0, 36, 13, 1) 0%,
+    rgba(17, 99, 83, 1) 18%
+  ); */
+  outline: green 2px solid;
+  /* border-radius: 5px; */
+}
+.test2 {
+  /* background-color:darkblue; */
+  padding: 10px;
+}
+.test {
+  /* background-color:burlywood; */
+  padding: 10px;
+}
+.profilePic_dash {
+  width: 300px;
+  height: 300px;
+  /* background-color: oldlace; */
+  /* border-radius:50%; */
+  margin: 5px;
+  /* outline:green 3px solid; */
+}
+.cardd {
+  background-color: rgba(11, 77, 94, 0.8);
+  opacity: 1.3;
+}
+.cardd:hover {
+  background-color: rgb(11, 77, 94);
+  box-shadow: 5px 5px 20px white;
+  transition: ease-in-out;
+}
+.info {
+  color: green;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.keyyy {
+  color: black;
+  font-weight: bolder;
+}
+.btn3 {
+  width: 50%;
+  margin: 5px;
+}
+@media only screen and (max-width: 400px) {
+  .keyyy {
+    font-size: 1em;
+  }
+}
