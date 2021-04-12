@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import NavBar from './NavBar';
-import {url2} from './url.js'
+import url2 from './url.js'
 import {Row,Col,Button,Modal,Form} from 'react-bootstrap';
 import '../css/Homepage.css';
 import HomePic from '../photos/Homepage_image.png';

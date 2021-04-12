@@ -3,7 +3,7 @@ import logo from '../photos/medlife-logo-2D38B846E5-seeklogo.com.png'
 import '../css/NavBar.css';
 import {Navbar,Nav,Form,Button,Modal} from 'react-bootstrap';
 import axios from 'axios';
-import {url2} from './url.js';
+import url2 from './url.js';
 function NavBar(){
   const [show, setShow] = useState(false);
   const [LoginObj,setLoginInfo]=useState({

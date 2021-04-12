@@ -1,5 +1,5 @@
 import React from 'react';
-import {url2} from './url.js';
+import url2 from './url.js';
 import logo from '../photos/medlife-logo-2D38B846E5-seeklogo.com.png'
 import '../css/NavBar.css';
 import {Navbar,Nav,Form,Button} from 'react-bootstrap';

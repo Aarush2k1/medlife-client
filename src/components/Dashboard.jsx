@@ -5,7 +5,7 @@ import axios from 'axios';
 import {Row,Col,Card,Button} from 'react-bootstrap';
 import '../css/Dashboard.css';
 import {motion} from 'framer-motion';
-import {url2} from './url.js';
+import url2 from './url.js';
 function Dashboard(){
     const [responseObj,setResponseObj]=useState("");
     const {RegEmail}=useParams();

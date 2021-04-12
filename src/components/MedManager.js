@@ -4,7 +4,7 @@ import {Row,Col,Form,Table,Button} from 'react-bootstrap';
 import '../css/ProfileForm.css';
 import Navbar2 from './Navbar2';
 import {motion} from 'framer-motion';
-import {url2} from './url.js';
+import url2 from './url.js';
 import axios from 'axios';
 function MedManager(){
     const {RegEmail}=useParams();
