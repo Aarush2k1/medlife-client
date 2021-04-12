@@ -5,6 +5,7 @@ import '../css/SearchMed.css';
 import Navbar2 from './Navbar2';
 import axios from 'axios';
 import {motion} from 'framer-motion';
+import url2 from './url.js';
 function SearchMed(){
   const [cities,setCities]=useState([]);
   const [cty,setCty]=useState();
@@ -22,7 +23,7 @@ function SearchMed(){
     fetchdata();
 },[cty,medd]);
 async function fetchdata(){
-  const url='http://localhost:3003/user/fetchCities';
+  const url={url2}+'fetchCities';
   await axios.get(url).then((response)=>{
     setCities(response.data);
   })
@@ -41,7 +42,7 @@ async function fetchMed(e){
     else{
     setErrCity('');
     setCty(e);
-    const url='http://localhost:3003/user/fetchMed/'+e;
+    const url={url2}+'fetchMed/'+e;
     await axios.get(url).then((response)=>{
         setMeds(response.data);
     })
@@ -61,7 +62,7 @@ async function fetchMedInfo(e){
     else{
         setErrMed('');
         setmedd(e);
-        const url='http://localhost:3003/user/fetchMedicine/'+e+'/'+cty;
+        const url={url2}+'fetchMedicine/'+e+'/'+cty;
         await axios.get(url).then((response)=>{
         setMedicine(response.data);
         })
@@ -75,7 +76,7 @@ async function fetchMedInfo(e){
     }
 }
 async function fetchSup(e){
-    const url='http://localhost:3003/user/fetchSupplier/'+e;
+    const url={url2}+'fetchSupplier/'+e;
     await axios.get(url).then((response)=>{
         setSupplier(response.data[0]);
         handleShow(); 

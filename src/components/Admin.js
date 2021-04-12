@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import url2 from './url.js';
 import {Table,Button,Row,Col,FormControl} from 'react-bootstrap';
 import axios from 'axios';
 function Admin(){
@@ -9,7 +10,7 @@ function Admin(){
         fetchUser();
     },[]);
     async function fetchUser(){
-      const url='http://localhost:3003/user/Admin';
+      const url={url2}+'Admin';
       await axios.get(url).then((response)=>{
         setUsres(response.data);
       })
@@ -35,7 +36,7 @@ function Admin(){
           emailArray.push(users[i].RegEmail)
         }
         if(mail_msg!==''&&emailArray.length!==0){
-          const url='http://localhost:3003/user/Multinodemailer/'+emailArray+'/'+mail_msg;
+          const url={url2}+'Multinodemailer/'+emailArray+'/'+mail_msg;
           await axios.get(url).then((response)=>{
             console.log(response.data.msg);
             alert(response.data.msg);
@@ -63,7 +64,7 @@ function Admin(){
        }
 
        if(mail_msg!==''&&emailArray.length!==0){
-        const url='http://localhost:3003/user/Multinodemailer/'+emailArray+'/'+mail_msg;
+        const url={url2}+'Multinodemailer/'+emailArray+'/'+mail_msg;
         await axios.get(url).then((response)=>{
           console.log(response.data.msg);
           alert(response.data.msg);
@@ -87,7 +88,7 @@ function Admin(){
       window.location.reload();
       if(stfts===true){
         stfts=false;
-        const url='http://localhost:3003/user/Status/'+email+'/'+stfts;
+        const url={url2}+'Status/'+email+'/'+stfts;
         await axios.get(url).then((response)=>{
           // alert('');
           console.log(response.data.msg);
@@ -98,7 +99,7 @@ function Admin(){
       }
       else{
         stfts=true;
-        const url='http://localhost:3003/user/Status/'+email+'/'+stfts;
+        const url={url2}+'Status/'+email+'/'+stfts;
         await axios.get(url).then(response=>{
         console.log(response.data.msg);     
         })

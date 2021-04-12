@@ -5,6 +5,7 @@ import axios from 'axios';
 import {Row,Col,Card,Button} from 'react-bootstrap';
 import '../css/Dashboard.css';
 import {motion} from 'framer-motion';
+import {url2} from './url.js';
 function Dashboard(){
     const [responseObj,setResponseObj]=useState("");
     const {RegEmail}=useParams();
@@ -13,7 +14,7 @@ function Dashboard(){
         fetchdata(); 
     },[]);
     async function fetchdata(){
-        const url="http://localhost:3003/user/dashInfo/"+RegEmail;
+        const url={url2}+"dashInfo/"+RegEmail;
         await axios.get(url).then((response)=>{
             setResponseObj(response.data[0]);
         })

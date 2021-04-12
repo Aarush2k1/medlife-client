@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import NavBar from './NavBar';
+import {url2} from './url.js'
 import {Row,Col,Button,Modal,Form} from 'react-bootstrap';
 import '../css/Homepage.css';
 import HomePic from '../photos/Homepage_image.png';
@@ -37,7 +38,7 @@ function Homepage(){
         EmailChk=regEx_Email.test(userInfo.RegEmail);
         if(EmailChk&&PasswordChk){
           setRegister(true);
-          const url='http://localhost:3003/user/nodemailer/'+userInfo.RegEmail;
+          const url={url2}+'nodemailer/'+userInfo.RegEmail;
           await axios.get(url).then((response)=>{
             console.log(response.data.msg);
             alert(response.data.msg);
@@ -62,7 +63,7 @@ function Homepage(){
           formData.append(key,userInfo[key]);
         }
         if(Otp===ResOtp){
-          const url='http://localhost:3003/user/user';
+          const url={url2}+'user';
           await axios.post(url,formData,{headers:{'Content-Type': 'multipart/form-data'}}).then((response)=>{
             if(response.data.code===11000){
               alert("DUPLICATE ENTRY\nACCOUNT ALREADY EXISTS")

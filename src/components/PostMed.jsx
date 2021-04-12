@@ -8,6 +8,7 @@ import axios from 'axios';
 import fropic from '../photos/download (1)p.png';
 import reapic from '../photos/download.png';
 import {motion} from 'framer-motion';
+import url2 from './url.js';
 function PostMed(){
     const [chk,setChk]=useState(true);
     const {RegEmail,city,homestate}=useParams();
@@ -30,7 +31,7 @@ function PostMed(){
     useEffect(() => {
         if(chk){
             console.log('RENDERED ONCE');
-            const url="http://localhost:3003/user/ChkLogin";
+            const url={url2}+"ChkLogin";
             axios.get(url).then((response)=>{
                 console.log(response.data.msg);
             })
@@ -71,7 +72,7 @@ function PostMed(){
     }
     
     async function submitRec(){
-        var url = "http://localhost:3003/user/MedInfo";
+        var url = {url2}+"MedInfo";
         let formData=new FormData();
         MedInfo.RegEmail=RegEmail;
         MedInfo.city=city;

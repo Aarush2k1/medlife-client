@@ -4,6 +4,7 @@ import {Row,Col,Form,Table,Button} from 'react-bootstrap';
 import '../css/ProfileForm.css';
 import Navbar2 from './Navbar2';
 import {motion} from 'framer-motion';
+import {url2} from './url.js';
 import axios from 'axios';
 function MedManager(){
     const {RegEmail}=useParams();
@@ -14,7 +15,7 @@ function MedManager(){
   },[]);
   const [isRecord,setRecord]=useState(false);
 async function doFetchInfo(){
-    const url="http://localhost:3003/user/FetchInfo/"+RegEmail;
+    const url={url2}+"FetchInfo/"+RegEmail;
     await axios.get(url).then(response=>{
       if(response.data.length===0){
         setRecord(true);
@@ -35,7 +36,7 @@ async function doFetchInfo(){
     
 }
 async function doDeleteRecord(id){
-  const url="http://localhost:3003/user/DeleteRecord/"+id;
+  const url={url2}+"DeleteRecord/"+id;
   await axios.get(url).then(()=>{
   doFetchInfo();
   })

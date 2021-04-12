@@ -4,6 +4,7 @@ import {Row,Col,Form,Button} from 'react-bootstrap';
 import '../css/ProfileForm.css';
 import Navbar2 from './Navbar2';
 import axios from 'axios';
+import url2 from './url.js';
 import {motion} from 'framer-motion';
 function UpdateProfile(){
     const [fetchChk,setfetchChk]=useState(true);
@@ -140,7 +141,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
             alert('PLEASE SELECT A STATE');
             return;
         }
-        var url = "http://localhost:3003/user/updateProfile";
+        var url = {url2}+"updateProfile";
         let formData=new FormData();
         profileObj.RegEmail=RegEmail;
         for(let key in profileObj){
@@ -189,7 +190,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
         setSelectedFileAadhar(e.target.files[0])
     }
     async function FetchInfo(){
-        const url="http://localhost:3003/user/dashInfo/"+RegEmail;
+        const url={url2}+"dashInfo/"+RegEmail;
         await axios.get(url).then((response1)=>{
             setProfileInfoObj(response1.data[0]);
             setProfileObj(response1.data[0]);

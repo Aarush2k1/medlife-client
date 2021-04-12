@@ -7,12 +7,13 @@ import axios from 'axios';
 import propic from '../photos/download (1)p.png';
 import aadpic from '../photos/download.png';
 import {motion} from 'framer-motion';
+import url2 from './url.js';
 function ProfileForm(){ 
     const [chk,setChk]=useState(true);
     useEffect(()=>{
         if(chk){
             console.log('RENDERED ONCE');
-            const url="http://localhost:3003/user/ChkLogin";
+            const url={url2}+"ChkLogin";
             axios.get(url).then((response)=>{
                 console.log(response.data.msg);
             })
@@ -135,7 +136,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
             return;
         }
         profileObj.RegEmail=RegEmail;
-        const url = "http://localhost:3003/user/profile";
+        const url = {url2}+"profile";
         let formData=new FormData();
         for(let key in profileObj){
             formData.append(key,profileObj[key]);
