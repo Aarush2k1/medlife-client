@@ -7,7 +7,7 @@ import axios from 'axios';
 import propic from '../photos/download (1)p.png';
 import aadpic from '../photos/download.png';
 import {motion} from 'framer-motion';
-import {url2} from './url.js';
+import url2 from './url.js';
 function ProfileForm(){ 
     const [chk,setChk]=useState(true);
     useEffect(()=>{
