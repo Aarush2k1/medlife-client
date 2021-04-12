@@ -1,1 +1,1 @@
-export const url='https://medlife-server.herokuapp.com/';
+export default {url2:'https://medlife-server.herokuapp.com/'}

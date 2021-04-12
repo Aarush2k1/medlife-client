@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import url2 from './url.js';
+import {url2} from './url.js';
 import {Table,Button,Row,Col,FormControl} from 'react-bootstrap';
 import axios from 'axios';
 function Admin(){

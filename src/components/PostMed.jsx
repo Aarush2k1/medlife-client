@@ -8,7 +8,7 @@ import axios from 'axios';
 import fropic from '../photos/download (1)p.png';
 import reapic from '../photos/download.png';
 import {motion} from 'framer-motion';
-import url2 from './url.js';
+import {url2} from './url.js';
 function PostMed(){
     const [chk,setChk]=useState(true);
     const {RegEmail,city,homestate}=useParams();
