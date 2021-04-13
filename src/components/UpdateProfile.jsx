@@ -4,9 +4,10 @@ import {Row,Col,Form,Button} from 'react-bootstrap';
 import '../css/ProfileForm.css';
 import Navbar2 from './Navbar2';
 import axios from 'axios';
-import url2 from './url.js';
+import myUrl from './url.js';
 import {motion} from 'framer-motion';
 function UpdateProfile(){
+    const backend_link=myUrl();
     const [fetchChk,setfetchChk]=useState(true);
     var city_arr;
 const state_arr = new Array("Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
@@ -141,7 +142,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
             alert('PLEASE SELECT A STATE');
             return;
         }
-        var url = {url2}+"updateProfile";
+        var url = backend_link+"updateProfile";
         let formData=new FormData();
         profileObj.RegEmail=RegEmail;
         for(let key in profileObj){
@@ -190,7 +191,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
         setSelectedFileAadhar(e.target.files[0])
     }
     async function FetchInfo(){
-        const url={url2}+"dashInfo/"+RegEmail;
+        const url=backend_link+"dashInfo/"+RegEmail;
         await axios.get(url).then((response1)=>{
             setProfileInfoObj(response1.data[0]);
             setProfileObj(response1.data[0]);

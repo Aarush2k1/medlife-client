@@ -8,8 +8,9 @@ import axios from 'axios';
 import fropic from '../photos/download (1)p.png';
 import reapic from '../photos/download.png';
 import {motion} from 'framer-motion';
-import url2 from './url.js';
+import myUrl from './url.js';
 function PostMed(){
+    const backend_link=myUrl();
     const [chk,setChk]=useState(true);
     const {RegEmail,city,homestate}=useParams();
     const [selectedFile, setSelectedFile] = useState();
@@ -31,7 +32,7 @@ function PostMed(){
     useEffect(() => {
         if(chk){
             console.log('RENDERED ONCE');
-            const url={url2}+"ChkLogin";
+            const url=backend_link+"ChkLogin";
             axios.get(url).then((response)=>{
                 console.log(response.data.msg);
             })
@@ -72,7 +73,7 @@ function PostMed(){
     }
     
     async function submitRec(){
-        var url = {url2}+"MedInfo";
+        var url = backend_link+"MedInfo";
         let formData=new FormData();
         MedInfo.RegEmail=RegEmail;
         MedInfo.city=city;

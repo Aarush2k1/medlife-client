@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
 import NavBar from './NavBar';
-import url2 from './url.js'
+import myUrl from './url.js'
 import {Row,Col,Button,Modal,Form} from 'react-bootstrap';
 import '../css/Homepage.css';
 import HomePic from '../photos/Homepage_image.png';
 import axios from 'axios';
 import {motion} from 'framer-motion';
 function Homepage(){
+    const backend_link=myUrl();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -38,7 +39,7 @@ function Homepage(){
         EmailChk=regEx_Email.test(userInfo.RegEmail);
         if(EmailChk&&PasswordChk){
           setRegister(true);
-          const url={url2}+'nodemailer/'+userInfo.RegEmail;
+          const url=backend_link+'nodemailer/'+userInfo.RegEmail;
           await axios.get(url).then((response)=>{
             console.log(response.data.msg);
             alert(response.data.msg);
@@ -63,7 +64,7 @@ function Homepage(){
           formData.append(key,userInfo[key]);
         }
         if(Otp===ResOtp){
-          const url={url2}+'user';
+          const url=backend_link+'user';
           await axios.post(url,formData,{headers:{'Content-Type': 'multipart/form-data'}}).then((response)=>{
             if(response.data.code===11000){
               alert("DUPLICATE ENTRY\nACCOUNT ALREADY EXISTS")

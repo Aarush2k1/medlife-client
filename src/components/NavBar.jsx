@@ -3,8 +3,9 @@ import logo from '../photos/medlife-logo-2D38B846E5-seeklogo.com.png'
 import '../css/NavBar.css';
 import {Navbar,Nav,Form,Button,Modal} from 'react-bootstrap';
 import axios from 'axios';
-import url2 from './url.js';
+import myUrl from './url.js';
 function NavBar(){
+  const backend_link=myUrl();
   const [show, setShow] = useState(false);
   const [LoginObj,setLoginInfo]=useState({
     RegEmail:'',
@@ -55,7 +56,7 @@ function NavBar(){
         PasswordChk=regEx_Password.test(LoginObj.password);
         EmailChk=regEx_Email.test(LoginObj.RegEmail);
         if(EmailChk&&PasswordChk){
-        const url={url2}+'login/'+LoginObj.RegEmail+'/'+LoginObj.password;
+        const url=backend_link+'login/'+LoginObj.RegEmail+'/'+LoginObj.password;
         await axios.get(url).then((response)=>{
           if(response.data.login===true){
             setResponse(response.data.msg);
@@ -88,7 +89,7 @@ function NavBar(){
     let regEx_Email=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     EmailChk=regEx_Email.test(LoginObj.RegEmail);
     if(EmailChk){
-      const url={url2}+'nodemailer/'+LoginObj.RegEmail;
+      const url=backend_link+'nodemailer/'+LoginObj.RegEmail;
       await axios.get(url).then((response)=>{
         alert(response.data.msg);
         setRegEmail(response.data.msg);
@@ -123,7 +124,7 @@ function NavBar(){
     PasswordChk=regEx_Password.test(Newpsswrd.NewPassword);
     if(PasswordChk){
       if(Newpsswrd.NewPassword===Newpsswrd.ConfirmNewPassword){
-        const url={url2}+'updatePassword/'+LoginObj.RegEmail+'/'+Newpsswrd.NewPassword;
+        const url=backend_link+'updatePassword/'+LoginObj.RegEmail+'/'+Newpsswrd.NewPassword;
         await axios.get(url).then((response)=>{
           if(response.data.msg==="UPDATED"){
             alert("UPDATED")

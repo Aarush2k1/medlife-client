@@ -1,13 +1,14 @@
 import React from 'react';
-import url2 from './url.js';
+import myUrl from './url.js';
 import logo from '../photos/medlife-logo-2D38B846E5-seeklogo.com.png'
 import '../css/NavBar.css';
 import {Navbar,Nav,Form,Button} from 'react-bootstrap';
 import axios from 'axios';
 function NavBar2(){
+  const backend_link=myUrl();
   async function Logout(){
     // let mobile=9417753210;
-    const url={url2}+'logout';
+    const url=backend_link+'logout';
     await axios.get(url).then((response)=>{
       alert(response.data);
       window.location.href='/';
