@@ -4,10 +4,10 @@ import {Row,Col,Form,Table,Button} from 'react-bootstrap';
 import '../css/ProfileForm.css';
 import Navbar2 from './Navbar2';
 import {motion} from 'framer-motion';
-import myUrl from './url.js';
+// import myUrl from './url.js';
 import axios from 'axios';
 function MedManager(){
-    const backend_link=myUrl();
+    // const backend_link=myUrl();
     const {RegEmail}=useParams();
     const [InfoArray,setInfoArray]=useState([{}]);
     useEffect(()=>{
@@ -16,7 +16,7 @@ function MedManager(){
   },[]);
   const [isRecord,setRecord]=useState(false);
 async function doFetchInfo(){
-    const url=backend_link+"FetchInfo/"+RegEmail;
+    const url="https://medlife-server.herokuapp.com/FetchInfo/"+RegEmail;
     await axios.get(url).then(response=>{
       if(response.data.length===0){
         setRecord(true);
@@ -37,7 +37,7 @@ async function doFetchInfo(){
     
 }
 async function doDeleteRecord(id){
-  const url=backend_link+"DeleteRecord/"+id;
+  const url="https://medlife-server.herokuapp.com/DeleteRecord/"+id;
   await axios.get(url).then(()=>{
   doFetchInfo();
   })

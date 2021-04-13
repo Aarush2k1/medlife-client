@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
-import myUrl from './url.js';
+// import myUrl from './url.js';
 import {Table,Button,Row,Col,FormControl} from 'react-bootstrap';
 import axios from 'axios';
 function Admin(){
-  const backend_link=myUrl();
+  // const backend_link=myUrl();
   const [users,setUsres]=useState([]);
   const [mail_msg,setMail_msg]=useState('');
     useEffect(()=>{
@@ -11,7 +11,7 @@ function Admin(){
         fetchUser();
     },[]);
     async function fetchUser(){
-      const url=backend_link+'Admin';
+      const url='https://medlife-server.herokuapp.com/Admin';
       await axios.get(url).then((response)=>{
         setUsres(response.data);
       })
@@ -37,7 +37,7 @@ function Admin(){
           emailArray.push(users[i].RegEmail)
         }
         if(mail_msg!==''&&emailArray.length!==0){
-          const url=backend_link+'Multinodemailer/'+emailArray+'/'+mail_msg;
+          const url='https://medlife-server.herokuapp.com/Multinodemailer/'+emailArray+'/'+mail_msg;
           await axios.get(url).then((response)=>{
             console.log(response.data.msg);
             alert(response.data.msg);
@@ -65,7 +65,7 @@ function Admin(){
        }
 
        if(mail_msg!==''&&emailArray.length!==0){
-        const url=backend_link+'Multinodemailer/'+emailArray+'/'+mail_msg;
+        const url='https://medlife-server.herokuapp.com/Multinodemailer/'+emailArray+'/'+mail_msg;
         await axios.get(url).then((response)=>{
           console.log(response.data.msg);
           alert(response.data.msg);
@@ -89,7 +89,7 @@ function Admin(){
       window.location.reload();
       if(stfts===true){
         stfts=false;
-        const url=backend_link+'Status/'+email+'/'+stfts;
+        const url='https://medlife-server.herokuapp.com/Status/'+email+'/'+stfts;
         await axios.get(url).then((response)=>{
           // alert('');
           console.log(response.data.msg);
@@ -100,7 +100,7 @@ function Admin(){
       }
       else{
         stfts=true;
-        const url=backend_link+'Status/'+email+'/'+stfts;
+        const url='https://medlife-server.herokuapp.com/Status/'+email+'/'+stfts;
         await axios.get(url).then(response=>{
         console.log(response.data.msg);     
         })

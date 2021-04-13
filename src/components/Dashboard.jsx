@@ -5,9 +5,9 @@ import axios from 'axios';
 import {Row,Col,Card,Button} from 'react-bootstrap';
 import '../css/Dashboard.css';
 import {motion} from 'framer-motion';
-import myUrl from './url.js';
+// import myUrl from './url.js';
 function Dashboard(){
-    const backend_link=myUrl();
+    // const backend_link=myUrl();
     const [responseObj,setResponseObj]=useState("");
     const {RegEmail}=useParams();
     useEffect(()=>{
@@ -15,7 +15,7 @@ function Dashboard(){
         fetchdata(); 
     },[]);
     async function fetchdata(){
-        const url=backend_link+"dashInfo/"+RegEmail;
+        const url="https://medlife-server.herokuapp.com/dashInfo/"+RegEmail;
         await axios.get(url).then((response)=>{
             setResponseObj(response.data[0]);
         })

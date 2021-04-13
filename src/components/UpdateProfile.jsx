@@ -4,10 +4,10 @@ import {Row,Col,Form,Button} from 'react-bootstrap';
 import '../css/ProfileForm.css';
 import Navbar2 from './Navbar2';
 import axios from 'axios';
-import myUrl from './url.js';
+// import myUrl from './url.js';
 import {motion} from 'framer-motion';
 function UpdateProfile(){
-    const backend_link=myUrl();
+    // const backend_link=myUrl();
     const [fetchChk,setfetchChk]=useState(true);
     var city_arr;
 const state_arr = new Array("Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
@@ -142,7 +142,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
             alert('PLEASE SELECT A STATE');
             return;
         }
-        var url = backend_link+"updateProfile";
+        var url ="https://medlife-server.herokuapp.com/updateProfile";
         let formData=new FormData();
         profileObj.RegEmail=RegEmail;
         for(let key in profileObj){
@@ -191,7 +191,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
         setSelectedFileAadhar(e.target.files[0])
     }
     async function FetchInfo(){
-        const url=backend_link+"dashInfo/"+RegEmail;
+        const url="https://medlife-server.herokuapp.com/dashInfo/"+RegEmail;
         await axios.get(url).then((response1)=>{
             setProfileInfoObj(response1.data[0]);
             setProfileObj(response1.data[0]);

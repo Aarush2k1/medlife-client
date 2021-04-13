@@ -8,9 +8,9 @@ import axios from 'axios';
 import fropic from '../photos/download (1)p.png';
 import reapic from '../photos/download.png';
 import {motion} from 'framer-motion';
-import myUrl from './url.js';
+// import myUrl from './url.js';
 function PostMed(){
-    const backend_link=myUrl();
+    // const backend_link=myUrl();
     const [chk,setChk]=useState(true);
     const {RegEmail,city,homestate}=useParams();
     const [selectedFile, setSelectedFile] = useState();
@@ -32,7 +32,7 @@ function PostMed(){
     useEffect(() => {
         if(chk){
             console.log('RENDERED ONCE');
-            const url=backend_link+"ChkLogin";
+            const url="https://medlife-server.herokuapp.com/ChkLogin";
             axios.get(url).then((response)=>{
                 console.log(response.data.msg);
             })
@@ -73,7 +73,7 @@ function PostMed(){
     }
     
     async function submitRec(){
-        var url = backend_link+"MedInfo";
+        var url = "https://medlife-server.herokuapp.com/MedInfo";
         let formData=new FormData();
         MedInfo.RegEmail=RegEmail;
         MedInfo.city=city;

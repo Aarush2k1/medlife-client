@@ -7,14 +7,14 @@ import axios from 'axios';
 import propic from '../photos/download (1)p.png';
 import aadpic from '../photos/download.png';
 import {motion} from 'framer-motion';
-import myUrl from './url.js';
+// import myUrl from './url.js';
 function ProfileForm(){
-    const backend_link=myUrl(); 
+    // const backend_link=myUrl(); 
     const [chk,setChk]=useState(true);
     useEffect(()=>{
         if(chk){
             console.log('RENDERED ONCE');
-            const url=backend_link+"ChkLogin";
+            const url="https://medlife-server.herokuapp.com/ChkLogin";
             axios.get(url).then((response)=>{
                 console.log(response.data.msg);
             })
@@ -137,7 +137,7 @@ s_a[35] = " Adra | Alipurduar | Amlagora | Arambagh | Asansol | Balurghat | Bank
             return;
         }
         profileObj.RegEmail=RegEmail;
-        const url = backend_link+"profile";
+        const url = "https://medlife-server.herokuapp.com/profile";
         let formData=new FormData();
         for(let key in profileObj){
             formData.append(key,profileObj[key]);
